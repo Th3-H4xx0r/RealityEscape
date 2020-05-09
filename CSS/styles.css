@@ -5,16 +5,11 @@
     background-image: url("https://i.pinimg.com/originals/ce/72/6e/ce726e137bb7c9baf23ed88abeb7eb9c.jpg");
     
     /* Add the blur effect */
-    filter: blur(10px);
-    -webkit-filter: blur(10px);
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    filter: blur(4px);
 
     height: 1080px;
     width: 100%;
+    border: none;
 }
 
 .bg-image
