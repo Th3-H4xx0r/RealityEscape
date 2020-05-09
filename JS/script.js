@@ -27,12 +27,37 @@ function registerUser() {
     var errorText = document.getElementById("errorText");
     var startButton = document.getElementById("startButton");
 
+    var delayInMilliseconds = 1000; //1 second
+
+    var usernnameTaken = false;
+
     if (username == "") {
         errorText.innerHTML = "Can't leave username blank";
     } else {
-        errorText.innerHTML = "";
         startButton.innerHTML = "Loading...";
-        var ref = firebase.database().ref().child("UserData").child(username);
+
+        var checkRef = firebase.database().ref().child("UserData").child(username);
+
+        checkRef.once("value", (snap)=>{
+            console.log(snap.val());
+            console.log("WORKS 1");
+
+            if(snap.val() != null){
+                usernnameTaken = true;
+                console.log("Username taken");
+            }
+        
+          }).then(function(){
+            errorText.innerHTML = "";
+        
+
+        if(usernnameTaken == true){
+            errorText.innerHTML = "Name already taken";
+            setTimeout(function () {
+                startButton.innerHTML = "Play";
+            }, delayInMilliseconds);
+        } else {
+            var ref = firebase.database().ref().child("UserData").child(username);
         ref.child("Username").set(username);
         ref.child("Level").set(0);
         ref.child("Points").set(0);
@@ -42,12 +67,23 @@ function registerUser() {
         leaderBoard_ref.child("Level").set(0);
         leaderBoard_ref.child("Points").set(0);
 
-        var delayInMilliseconds = 1000; //1 second
-
         setTimeout(function () {
             startButton.innerHTML = "Play";
         }, delayInMilliseconds);
+
+
+        
+        }
+          });
+        
+        setTimeout(function () {
+            startButton.innerHTML = "Play";
+        }, delayInMilliseconds);
+
+  
     }
+
+    
 
 
 }
