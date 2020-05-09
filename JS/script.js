@@ -16,7 +16,27 @@
 
     // Initialize Firebase with a second Firebase project
     // Use the shorthand notation to access the default project's Firebase services
-    var ref = firebase.database().ref().child("Test").set("Helloo12");
+    // var ref = firebase.database().ref().child("Test").set("Helloo12");
 
    
 }());
+
+function registerUser(){
+
+    var username = document.getElementById("usernameFourm").value;
+    var errorText = document.getElementById("errorText");
+
+    if(username == "")
+    {
+        errorText.innerHTML = "Can't leave username blank";
+    } else 
+    {
+        errorText.innerHTML = "";
+    }
+    var ref = firebase.database().ref().child("UserData").child(username);
+    ref.child("Username").set(username);
+    ref.child("Level").set(0);
+    ref.child("Points").set(0);
+}
+
+

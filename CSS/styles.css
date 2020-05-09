@@ -1,0 +1,70 @@
+.logoLabel
+{
+    font-size: 30px;
+    margin-bottom: 50px;
+
+}
+
+.inputUsername
+{
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    border: none;
+    background-color: rgb(233, 233, 233);
+    font-size: 25px;
+    padding-left: 10px;
+    font-weight: 600;
+    transition: box-shadow 0.3s ease-in-out;
+
+}
+
+
+.inputUsername:focus, input:focus
+{
+    outline: none;
+    border: none;
+    outline: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.startButton
+{
+    margin-top: 10px;
+    border: none;
+    height:40px;
+    width: 150px;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: hover 0.3s ease-in-out;
+    color: black;
+    background-color: rgb(72, 226, 0);
+}
+
+.startButton:hover
+{
+    background-color: rgb(3, 99, 0);
+    color: white;
+}
+
+.startButton:focus, input:focus
+{
+    outline: none;
+    border: none;
+    outline: none;
+}
+
+.gameStartFourm
+{
+    top: 50%;
+    position: absolute;
+    left: 40%;
+    transform: translateY(-50%);
+
+}
+
+.errText
+{
+    color: red;
+    font-size: 13px;
+}

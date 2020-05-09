@@ -54,13 +54,26 @@
 <!--BODY-->
 <body>
     <!--START GAME FOURM-->
-    <div class="center">
-        <form>
-            <label>Username...</label>
-            <input>
 
-        </form>
-    </div>
+    <section class="gameStartFourm">
+        <div class="d-flex justify-content-center">
+            <center>
+                <div class="col">
+                    <h1 class="logoLabel">Reality Escape</h1>
+                    <form>
+                        <input id = "usernameFourm" class="inputUsername" placeholder="Username...">
+            
+                    </form>
+
+                    <p class = "errText" id = "errorText"></p>
+        
+                    <button id = "startButton" class="startButton" onclick = "registerUser()">Play</button>
+                </div>
+            </center>
+        </div>
+    </section>
+
+     
 
 
 </body>
