@@ -37,6 +37,11 @@ function registerUser() {
         ref.child("Level").set(0);
         ref.child("Points").set(0);
 
+        var leaderBoard_ref = firebase.database().ref().child("Leaderboard").child(username);
+        leaderBoard_ref.child("Username").set(username);
+        leaderBoard_ref.child("Level").set(0);
+        leaderBoard_ref.child("Points").set(0);
+
         var delayInMilliseconds = 1000; //1 second
 
         setTimeout(function () {
@@ -48,14 +53,30 @@ function registerUser() {
 }
 
 function getLeaderBoardData(){
+    /*
     original = document.getElementById("test");
     elem = addThing = document.createElement("div");
 
     elem.innerHTML = "HEllo";
 
     document.body.appendChild(elem);
+    */
+
+   var ref = firebase.database().ref().child("Leaderboard");
+
+   ref.once("value", (snap)=>{
+    console.log(snap.val());
+
+    snap.forEach((child) => {
+        console.log(child);
+    });
+
+  });
+
+
+
     
-    
+
 }
 
 
