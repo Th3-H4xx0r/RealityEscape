@@ -123,30 +123,3 @@
     outline: none;
 }
 
-.leaderboardScreen
-{
-    top: 20%;
-    position: absolute;
-    left: 30%;
-}
-
-.leaderboardTitle
-{
-    color: white;
-    font-size: 45px;
-}
-
-.leaderboardLabel
-{
-    color: white;
-    font-size: 30px;
-
-}
-
-.leaderboardData
-{
-    color: white;
-    font-size: 20px;
-
-}
-

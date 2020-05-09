@@ -38,80 +38,96 @@ function registerUser() {
 
         var checkRef = firebase.database().ref().child("UserData").child(username);
 
-        checkRef.once("value", (snap)=>{
+        checkRef.once("value", (snap) => {
             console.log(snap.val());
             console.log("WORKS 1");
 
-            if(snap.val() != null){
+            if (snap.val() != null) {
                 usernnameTaken = true;
                 console.log("Username taken");
             }
-        
-          }).then(function(){
+
+        }).then(function () {
             errorText.innerHTML = "";
-        
 
-        if(usernnameTaken == true){
-            errorText.innerHTML = "Name already taken";
-            setTimeout(function () {
-                startButton.innerHTML = "Play";
-            }, delayInMilliseconds);
-        } else {
-            var ref = firebase.database().ref().child("UserData").child(username);
-        ref.child("Username").set(username);
-        ref.child("Level").set(0);
-        ref.child("Points").set(0);
 
-        var leaderBoard_ref = firebase.database().ref().child("Leaderboard").child(username);
-        leaderBoard_ref.child("Username").set(username);
-        leaderBoard_ref.child("Level").set(0);
-        leaderBoard_ref.child("Points").set(0);
+            if (usernnameTaken == true) {
+                errorText.innerHTML = "Name already taken";
+                setTimeout(function () {
+                    startButton.innerHTML = "Play";
+                }, delayInMilliseconds);
+            } else {
+                var ref = firebase.database().ref().child("UserData").child(username);
+                ref.child("Username").set(username);
+                ref.child("Level").set(0);
+                ref.child("Points").set(0);
+
+                var leaderBoard_ref = firebase.database().ref().child("Leaderboard").child(username);
+                leaderBoard_ref.child("Username").set(username);
+                leaderBoard_ref.child("Level").set(0);
+                leaderBoard_ref.child("Points").set(0);
+
+                setTimeout(function () {
+                    startButton.innerHTML = "Play";
+                }, delayInMilliseconds);
+
+
+
+            }
+        });
 
         setTimeout(function () {
             startButton.innerHTML = "Play";
         }, delayInMilliseconds);
 
 
-        
-        }
-          });
-        
-        setTimeout(function () {
-            startButton.innerHTML = "Play";
-        }, delayInMilliseconds);
-
-  
     }
 
-    
+
 
 
 }
 
-function getLeaderBoardData(){
-    /*
-    original = document.getElementById("test");
-    elem = addThing = document.createElement("div");
+function getLeaderBoardData() {
 
-    elem.innerHTML = "HEllo";
+    original = document.getElementById("leaderboardTableBody");
 
-    document.body.appendChild(elem);
-    */
 
-   var ref = firebase.database().ref().child("Leaderboard");
+    var i = 0;
 
-   ref.once("value", (snap)=>{
-    console.log(snap.val());
+    var namesList = [];
+    var scoresList = [];
+    var levelsList = [];
+    var rawData = null;
 
-    snap.forEach((child) => {
-        console.log(child);
+    var dataList = [];
+
+
+
+    var ref = firebase.database().ref().child("Leaderboard");
+
+    ref.once("value", (snap) => {
+        console.log(snap.val());
+        rawData = snap.val();
+
+
+        snap.forEach((child) => {
+            dataList.push([child.child("Username").val(), child.child("Points").val(), child.child("Level").val()]);
+        });
+
+    }).then(function(){
+
+        
+        console.log(dataList.sort(function(a,b){return b[1] - a[1];}));
+
+        for(let i = 0; i <= dataList.length; i++){
+            elem = document.createElement("tr");
+            elem.innerHTML = '<th scope="col" class="leaderboardData">1</th><th scope="col" class="leaderboardData">Shabd Veyyakul1a</th><th scope="col" class="leaderboardData">20321</th><th scope="col" class="leaderboardData">Level 1</th>';
+            elem.classList.add("leaderboardData")
+            elem.innerHTML = '<th scope="col" class="leaderboardData">'+(i+1).toString()+'</th><th scope="col" class="leaderboardData">' + dataList[i][0] + '</th><th scope="col" class="leaderboardData">' + dataList[i][1] + '</th><th scope="col" class="leaderboardData">Level ' +dataList[i][2] + '</th>';
+            original.appendChild(elem);
+        };
     });
-
-  });
-
-
-
-    
 
 }
 
