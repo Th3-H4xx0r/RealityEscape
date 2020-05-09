@@ -1,7 +1,14 @@
+body
+{
+    background-image: url("https://i.pinimg.com/originals/ce/72/6e/ce726e137bb7c9baf23ed88abeb7eb9c.jpg");
+    
+}
+
 .logoLabel
 {
     font-size: 30px;
     margin-bottom: 50px;
+    color: white;
 
 }
 
@@ -36,15 +43,20 @@
     width: 150px;
     font-size: 20px;
     border-radius: 10px;
-    transition: hover 0.3s ease-in-out;
-    color: black;
-    background-color: rgb(72, 226, 0);
+    transition: background-color 0.3s ease-in-out;
+    color: white;
+    background-color: rgb(5, 150, 0);
+    backdrop-filter: blur(40px);
+      opacity: 60%;
 }
 
 .startButton:hover
 {
-    background-color: rgb(3, 99, 0);
+    background-color: rgb(6, 187, 0);
     color: white;
+    backdrop-filter: blur(40px);
+      opacity: 100%;
+    
 }
 
 .startButton:focus, input:focus
@@ -68,3 +80,31 @@
     color: red;
     font-size: 13px;
 }
+
+.leaderboardbutton
+{
+    margin-right: 0px;
+    font-size: 25px;
+    height: 50px;
+    width: 200px;
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+    color: white;
+    
+}
+
+.leaderboardbutton:hover
+{
+    color: #ffee00;
+    
+
+}
+
+.leaderboardbutton:focus, input:focus
+{
+    outline: none;
+    border: none;
+    outline: none;
+}
+

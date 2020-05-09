@@ -18,25 +18,45 @@
     // Use the shorthand notation to access the default project's Firebase services
     // var ref = firebase.database().ref().child("Test").set("Helloo12");
 
-   
+
 }());
 
-function registerUser(){
+function registerUser() {
 
     var username = document.getElementById("usernameFourm").value;
     var errorText = document.getElementById("errorText");
+    var startButton = document.getElementById("startButton");
 
-    if(username == "")
-    {
+    if (username == "") {
         errorText.innerHTML = "Can't leave username blank";
-    } else 
-    {
+    } else {
         errorText.innerHTML = "";
+        startButton.innerHTML = "Loading...";
+        var ref = firebase.database().ref().child("UserData").child(username);
+        ref.child("Username").set(username);
+        ref.child("Level").set(0);
+        ref.child("Points").set(0);
+
+        var delayInMilliseconds = 1000; //1 second
+
+        setTimeout(function () {
+            startButton.innerHTML = "Play";
+        }, delayInMilliseconds);
     }
-    var ref = firebase.database().ref().child("UserData").child(username);
-    ref.child("Username").set(username);
-    ref.child("Level").set(0);
-    ref.child("Points").set(0);
+
+
 }
+
+function getLeaderBoardData(){
+    original = document.getElementById("test");
+    elem = addThing = document.createElement("div");
+
+    elem.innerHTML = "HEllo";
+
+    document.body.appendChild(elem);
+    
+    
+}
+
 
 
