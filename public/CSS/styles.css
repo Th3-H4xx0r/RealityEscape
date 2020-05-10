@@ -123,3 +123,143 @@
     outline: none;
 }
 
+.leaderboardScreen
+{
+    top: 20%;
+    position: absolute;
+    left: 30%;
+}
+
+.leaderboardTitle
+{
+    color: white;
+    font-size: 45px;
+}
+
+.leaderboardLabel
+{
+    color: white;
+    font-size: 30px;
+
+}
+
+.leaderboardData
+{
+    color: white;
+    font-size: 20px;
+
+}
+
+.ctScn-Bg
+{
+    background-color: black;
+}
+
+.ctScn-Text
+{
+    background-color: black;
+    color: white;
+    font-size: 45px;
+}
+
+.ctScn-Center
+{
+    top: 50%;
+    position: absolute;
+}
+
+.arrow-placement
+{
+    top: 70%;
+    position: absolute;
+}
+
+.ctScn-Center1
+{
+    top: 130%;
+    position: absolute;
+}
+
+.arrow-placement1
+{
+    top: 160%;
+    position: absolute;
+}
+
+.ctScn-Center2
+{
+    top: 220%;
+    position: absolute;
+}
+
+.arrow-placement2
+{
+    top: 260%;
+    position: absolute;
+}
+
+.ctScn-Center3
+{
+    top: 320%;
+    position: absolute;
+}
+
+.arrow-placement3
+{
+    top: 360%;
+    position: absolute;
+}
+
+.ctScn-Center4
+{
+    top: 425%;
+    position: absolute;
+}
+
+.arrow-placement4
+{
+    top: 460%;
+    position: absolute;
+}
+
+.ctScn-Center5
+{
+    top: 510%;
+    position: absolute;
+}
+
+.arrow-placement5
+{
+    top: 540%;
+    position: absolute;
+}
+
+.ctScn-Center6
+{
+    top: 600%;
+    position: absolute;
+}
+
+.start-journey-btn
+{
+    top: 630%;
+    color: white;
+    height: 70px;
+    width: 300px;
+    background-color: transparent;
+    font-size: 30px;
+    position: absolute;
+    border-radius: 20px;
+    transition:background-color 0.9s ease-in-out;
+}
+
+.start-journey-btn:hover
+{
+    color: black;
+    background-color: whitesmoke;
+}
+
+.start-journey-btn:focus, input:focus
+{
+    outline: none;
+}

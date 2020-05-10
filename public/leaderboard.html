@@ -2,6 +2,7 @@
 <html lang="en">
 
 <!-- HEAD -->
+
 <head>
     <meta charset="utf-8">
     <title>Reality Escape Leaderboard</title>
@@ -51,19 +52,69 @@
 
 </head>
 
-<!--BODY-->
-<body> 
+<script>
+    $(document).ready(function () {
+        getLeaderBoardData();
+    });
+</script>
 
-    <div class="bg-image-blured">
-        <button onclick = "getLeaderBoardData()">GET DATA</button>
+<!--BODY-->
+
+<body>
+
+    <div class="bg-image">
+        <section class="leaderboardScreen">
+            <div class="d-flex justify-content-center"></div>
+            <center>
+
+                <h1 class="leaderboardTitle">Leaderboard</h1>
+
+                <div class="container-fluid" style="width: 800px;">
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="leaderboardLabel">Place(#)</th>
+
+                                <th scope="col" class="leaderboardLabel">Name</th>
+                                <th scope="col" class="leaderboardLabel">Score</th>
+                                <th scope="col" class="leaderboardLabel">Level</th>
+                            </tr>
+                        </thead>
+
+
+
+                        <tbody id="leaderboardTableBody">
+
+                        <!--
+                            <tr>
+                                <th scope="col" class="leaderboardData">1</th>
+                                <th scope="col" class="leaderboardData">Shabd Veyyakula</th>
+                                <th scope="col" class="leaderboardData">20321</th>
+                                <th scope="col" class="leaderboardData">Level 1</th>
+                            </tr>
+
+                        -->
+
+                        </tbody>
+                        <table>
+                </div>
+
+
+            </center>
+
+
+
+
+    </div>
+    </section>
     </div>
 
     <!--LEADERBOARD SECTION-->
     <!-- SHABD ADD YORU CODE HERE-->
 
-    
 
-     
+
+
 
 
 </body>
