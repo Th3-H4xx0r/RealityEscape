@@ -50,32 +50,40 @@ function registerUser() {
         }).then(function () {
             errorText.innerHTML = "";
 
-
-            if (usernnameTaken == true) {
-                errorText.innerHTML = "Name already taken";
-                setTimeout(function () {
-                    startButton.innerHTML = "Play";
-                }, delayInMilliseconds);
+            if(username.includes("-")){
+                errorText.innerHTML = "There can't be dashes in your name";
             } else {
-                var ref = firebase.database().ref().child("UserData").child(username);
-                ref.child("Username").set(username);
-                ref.child("Level").set(0);
-                ref.child("Points").set(0);
-
-                var leaderBoard_ref = firebase.database().ref().child("Leaderboard").child(username);
-                leaderBoard_ref.child("Username").set(username);
-                leaderBoard_ref.child("Level").set(0);
-                leaderBoard_ref.child("Points").set(0);
-
-                setTimeout(function () {
-                    startButton.innerHTML = "Play";
-                }, delayInMilliseconds);
-
-                redirect("cutscene.html");
-
-
-
+                if (usernnameTaken == true) {
+                    errorText.innerHTML = "Name already taken";
+                    setTimeout(function () {
+                        startButton.innerHTML = "Play";
+                    }, delayInMilliseconds);
+                } else {
+                    var ref = firebase.database().ref().child("UserData").child(username);
+                    ref.child("Username").set(username);
+                    ref.child("Level").set(0);
+                    ref.child("Points").set(0);
+    
+                    var leaderBoard_ref = firebase.database().ref().child("Leaderboard").child(username);
+                    leaderBoard_ref.child("Username").set(username);
+                    leaderBoard_ref.child("Level").set(0);
+                    leaderBoard_ref.child("Points").set(0);
+    
+                    setTimeout(function () {
+                        startButton.innerHTML = "Play";
+                    }, delayInMilliseconds);
+    
+                    storeUsername(username);
+    
+                    redirect("cutscene.html");
+    
+    
+    
+                }
             }
+
+
+            
         });
 
         setTimeout(function () {
@@ -124,6 +132,55 @@ function getLeaderBoardData() {
 function redirect(page){
     window.location.href = page;
 }
+
+function storeUsername(username){
+    if (typeof(Storage) !== "undefined") {
+        localStorage.setItem("Username", username);
+        console.log("STORED");
+      } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+      }
+}
+
+function getUsername(){
+    if (typeof(Storage) !== "undefined") {
+        var name = localStorage.getItem("Username");
+        console.log(name);
+        return name;
+      } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+      }
+}
+
+function updateLeaderboardData(){
+    var username = getUsername();
+    var level = document.getElementById("levelFourm").value;
+    var score = document.getElementById("scoreFourm").value;
+    var errorText = document.getElementById("errorTextScore");
+
+    console.log(username);
+
+    if(level == "" || score == ""){
+        errorText.innerHTML = "Can't leave any of the fields blank";
+    } else {
+        var ref = firebase.database().ref().child("Leaderboard");
+        errorText.innerHTML = "";
+
+    ref.child(username).child("Level").set(level);
+    ref.child(username).child("Points").set(score);
+    ref.child(username).child("Username").set(username).then(function(){
+        redirect("leaderboard.html");
+    });
+    
+
+    //
+    }
+
+    
+    
+
+}
+
 
 
 

@@ -1,5 +1,16 @@
 
+html
+{
+    height: 100%;
+    width: 100%;
 
+}
+
+body
+{
+    height: 100%;
+    width: 100%;
+}
 .bg-image-blured
 {
     background-image: url("https://i.pinimg.com/originals/ce/72/6e/ce726e137bb7c9baf23ed88abeb7eb9c.jpg");
@@ -262,4 +273,13 @@
 .start-journey-btn:focus, input:focus
 {
     outline: none;
+}
+
+.gameBtn-options
+{
+    font-size: 12px;
+    border: none;
+    font-weight: 500;
+    background-color: white;
+    border-radius: 5px;
 }
