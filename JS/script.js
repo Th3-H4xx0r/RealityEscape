@@ -71,6 +71,8 @@ function registerUser() {
                     startButton.innerHTML = "Play";
                 }, delayInMilliseconds);
 
+                redirect("cutscene.html");
+
 
 
             }
@@ -82,23 +84,11 @@ function registerUser() {
 
 
     }
-
-
-
-
 }
 
 function getLeaderBoardData() {
 
     original = document.getElementById("leaderboardTableBody");
-
-
-    var i = 0;
-
-    var namesList = [];
-    var scoresList = [];
-    var levelsList = [];
-    var rawData = null;
 
     var dataList = [];
 
@@ -129,6 +119,10 @@ function getLeaderBoardData() {
         };
     });
 
+}
+
+function redirect(page){
+    window.location.href = page;
 }
 
 
