@@ -52,35 +52,16 @@
 </head>
 
 <!--BODY-->
-<body> 
 
-    <div class="bg-image">
-        <!--START GAME FOURM-->
+<section style="background-color: black; height: 100%; width: 100%;">
+    <button class="gameBtn-options" onclick="redirect('index.html')">
+        Quit Game
+    </button>
 
-    <div class="d-flex justify-content-end">
-        <a href="leaderboard.html"><Button class="leaderboardbutton">Leaderboard</Button></a>
-        <div>
+    <button class="gameBtn-options" onclick="redirect('game_finished.html')">
+        Game Finished
+    </button>
+</section>
 
-    <section class="gameStartFourm">
-        <div class="d-flex justify-content-center" id = "test">
-            <center>
-                <div class="col">
-                    <h1 class="logoLabel">Reality Escape</h1>
-                    <form>
-                        <input id = "usernameFourm" class="inputUsername" placeholder="Username...">
-            
-                    </form>
-
-                    <p class = "errText" id = "errorText"></p>
-        
-                    <button id = "startButton" class="startButton" onclick = "registerUser()">Play</button>
-                </div>
-            </center>
-        </div>
-    </section>
-    </div>
-
-
-</body>
 
 </html>
